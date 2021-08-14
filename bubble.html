@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubble</title>
+    <style>
+      #section-container {
+        background-color: #227093;
+        padding: 50px;
+        color: #fff;
+        border-radius: 10px;
+      }
+      ul {
+        border: 4px solid #ffda79;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .list-item {
+        padding: 10px;
+        border: 1px solid #f7f1e3;
+        margin: 10px 0;
+        list-style: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Event Bubble</h1>
+    <section id="section-container">
+      <h2>Bublle list</h2>
+      <ul id="ul-container">
+        <li class="list-item">Lorem, ipsum.</li>
+        <li id="second-item" class="list-item">Aspernatur, recusandae!</li>
+        <li class="list-item">Autem, quo.</li>
+        <li class="list-item">Repellat, numquam!</li>
+        <li class="list-item">At, ipsa?</li>
+        <li class="list-item">Necessitatibus, fugit.</li>
+      </ul>
+    </section>
+    <script>
+      // second item
+      document
+        .getElementById("second-item")
+        .addEventListener("click", function (event) {
+          console.log("Second item clicked");
+          event.stopImmediatePropagation();
+        });
+      // second item
+      document
+        .getElementById("second-item")
+        .addEventListener("click", function (event) {
+          console.log("Second item clicked 2");
+          //   event.stopPropagation();
+        });
+      // second item
+      document
+        .getElementById("second-item")
+        .addEventListener("click", function (event) {
+          console.log("Second item clicked 3");
+        });
+      // second item
+      document
+        .getElementById("second-item")
+        .addEventListener("click", function (event) {
+          console.log("Second item clicked 4");
+        });
+
+      // ul
+      document
+        .getElementById("ul-container")
+        .addEventListener("click", function (event) {
+          console.log("Ul clicked");
+        });
+
+      // section
+      document
+        .getElementById("section-container")
+        .addEventListener("click", function (event) {
+          console.log("Section Container Clicked");
+        });
+    </script>
+  </body>
+</html>

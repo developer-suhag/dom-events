@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="add-text"></p>
+    <button onclick="usingFunction()">By Using Function</button>
+    <button id="direct-method">Direct Method</button>
+
+    <p id="text-two"></p>
+
+    <br />
+    <input id="text-flied" type="text" placeholder="Type your name" />
+    <button id="update-button">Update</button>
+    <p id="inputed-text"></p>
+    <br />
+    <input id="text-flied2" type="text" />
+    <button id="update-button2">Update</button>
+    <p id="inputed-text2"></p>
+
+    <script>
+      const getElement = document.getElementById("add-text");
+      function usingFunction() {
+        getElement.innerText = "I am added by using Onlick Function Method";
+      }
+      const getElement2 = document.getElementById("text-two");
+      document
+        .getElementById("direct-method")
+        .addEventListener("click", function () {
+          getElement2.innerText = "I am added by using Onclick driect method";
+        });
+
+      document
+        .getElementById("update-button")
+        .addEventListener("click", function () {
+          const textFiled = document.getElementById("text-flied");
+          const inputedText = document.getElementById("inputed-text");
+          inputedText.innerText = textFiled.value;
+          textFiled.value = "";
+        });
+
+      document
+        .getElementById("update-button2")
+        .addEventListener("click", function () {
+          const inputFiled = document.getElementById("text-flied2");
+          const inputedText2 = document.getElementById("inputed-text2");
+          inputedText2.innerText = inputFiled.value;
+          inputFiled.value = "";
+        });
+    </script>
+  </body>
+</html>
